@@ -1,3 +1,4 @@
+import re
 
 def read_file():
     with open('day_2/input.txt', 'r') as file:
@@ -12,6 +13,13 @@ def main(input):
             continue
         else:
             print(line)
+            match = re.search(r"Game (\d+)", line)
+            if match:
+                game_number = match.group(1)
+                print(game_number)
+            else:
+                print("No match found")
+            
 
 if __name__ == "__main__":
     main(input)
