@@ -26,19 +26,26 @@ def main():
             
     for hand in hands:
         print(hand)
+        assign_points(hand)
+        
+    ## TODO put hands in map of results
         
     
 def assign_points(hand):
     if get_five_of_a_kind_result(hand) > 0:
         hand.points = get_five_of_a_kind_result(hand);
-    elif is_full_house(hand):
-        return 75
-    elif is_three_of_a_kind(hand):
-        return 50
-    elif is_two_pairs(hand):
-        return 25
-    elif is_pair(hand):
-        return 10
+    elif get_four_of_a_kind_result(hand) > 0:
+        hand.points = get_four_of_a_kind_result(hand);
+    elif get_full_house_result(hand) > 0:
+        hand.points = get_full_house_result(hand);
+    elif get_three_of_a_kind_result(hand) > 0:
+        hand.points = get_three_of_a_kind_result(hand);
+    elif get_two_pairs_result(hand) > 0:
+        hand.points = get_two_pairs_result(hand);
+    elif get_one_pair_result(hand) > 0:
+        hand.points = get_one_pair_result(hand);
+    elif get_high_card_result(hand) > 0:
+        hand.points = get_high_card_result(hand);    
     else:
         return 0
 
@@ -62,13 +69,31 @@ def get_five_of_a_kind_result(hand):
         return 1000 + hand.cards[0];
     else:
         return 0; 
+    
+def get_four_of_a_kind_result(hand):
+    ## TODO implement
+    return 0
 
 def get_full_house_result(hand):
-    ## TODO
-    
+    ## TODO implement
+    return 0
 
-def is_full_house(hand):
-    return 
+def get_three_of_a_kind_result(hand):
+    ## TODO implement
+    return 0
+
+def get_two_pairs_result(hand):
+    ## TODO implement
+    return 0
+
+def get_one_pair_result(hand):
+    ## TODO implement
+    return 0
+
+def get_high_card_result(hand):
+    ## TODO implement
+    return 0
+
 
 class Hand:
     cards = []
