@@ -28,7 +28,8 @@ def main():
             input_chars.append("")
         else:
             input_chars.append(line)
-            
+    s_position = find_animal_start(input_chars)        
+    
             
 def find_farthest_point(maze):
     find_animal_start(maze)
